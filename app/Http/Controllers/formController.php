@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
-class formController extends Controller
+class FormController extends Controller
 {
     public function show() {
         // pokazuje formularz
@@ -16,37 +17,27 @@ class formController extends Controller
         // zapisuje do bazy danych
         // ale najpierw sprawdzamy, czy ktoś z takim numerem lub nazwą istnieje
 
-        $login = $request->input('login');
-        $phone = $request->input('phone');
+        $userInfo = [
+            'id' => null,
+            'login' => $request->input('login'),
+            'password' => Hash::make($request->input('password')),
+            'imie' => $request->input('imie'),
+            'nazwisko' => $request->input('nazwisko'),
+            'email' => $request->input('email'),
+            'telefon' => $request->input('phone')
+        ];
 
-        $foundUsers = DB::table('users')->where('telefon', '=', $phone)->whereOr('login', '=', $login)->count();
+        $foundUsers = DB::table('users')->where('telefon', '=', $userInfo['telefon'])->whereOr('login', '=', $userInfo['login'])->count();
         if(!$foundUsers) {
             // nie znalazło, więc niech zapisze
-            $password = md5(sha1($request->input('password')));
-            $imie = $request->input('imie');
-            $nazwisko = $request->input('nazwisko');
-            $email = $request->input('email');
-            DB::insert('INSERT INTO users VALUES(null, ?, ?, ?, ?, ?, ?)', [$login, $password, $imie, $nazwisko, $email, $phone]);
+
+            DB::table('users')->insert($userInfo);
         }
 
         return Redirect::route('form.list', ['status' => ($foundUsers ? 'user-already-exists' : 'success')]);
-
-
-        /**
-         * Tabela wygląda następująco:
-         * 
-         * 'id'         int     auto_increment  primary
-         * 'login'      text
-         * 'password'   text
-         * 'imie'       text
-         * 'nazwisko'   text
-         * 'email'      text
-         * 'telefon     text
-         */
-
     }
     public function list() {
-        $results = DB::select('SELECT * FROM users');
+        $results = DB::table('users')->get();
         return view('form.list', ['users' => $results]);
     }
 }

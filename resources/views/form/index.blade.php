@@ -17,7 +17,7 @@
       <span class="description">W tym formularzu możesz pozostawić nam wszystkie informacje o tobie (lub o innych), których oczywiśnie nie użyjemy do niecnych celów (a przynajmniej hasła, bo zostanie zaszyfrowane, żeby nikt nie mógł go ukraść)</span>
     </div>
 
-    <form method="post" action="/formularz">
+    <form method="post" action="{{ route('form.save') }}">
       @csrf <!-- {{ csrf_field() }} -->
       <div class="group">
         <div class="item">

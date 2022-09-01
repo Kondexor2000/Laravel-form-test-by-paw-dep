@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Controllers\formController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,6 @@ use App\Http\Controllers\formController;
 // robię po prostu przekierowanie z / na /formularz
 Route::get( '/', function () { return redirect('/formularz'); });
 
-Route::get( '/formularz',       [formController::class, 'show'])->name('form');
-Route::get( '/formularz/list',  [formController::class, 'list'])->name('form.list');
-Route::post('/formularz',       [formController::class, 'save'])->name('form.save');
+Route::get( '/formularz',       [FormController::class, 'show'])->name('form');
+Route::get( '/formularz/list',  [FormController::class, 'list'])->name('form.list');
+Route::post('/formularz',       [FormController::class, 'save'])->name('form.save');
