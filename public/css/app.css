@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@100;300;400;500;600;700;800;900&display=swap");
+
+body {
+    background-color: #efefef;
+}
+
+.pageContent .formHeader {
+    position: relative;
+    display: block;
+}
+.pageContent .formHeader .title {
+    position: relative;
+    display: block;
+    font: 700 34px Saira Condensed;
+    color: #000000;
+}
+.pageContent .formHeader .description {
+    position: relative;
+    display: block;
+    font: 500 16px/20px Saira;
+    color: #000000;
+}
+
+.pageContent {
+    position: relative;
+    display: block;
+    max-width: 800px;
+    margin: 150px auto;
+}
+.pageContent form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+.pageContent form input {
+    all: unset;
+    position: relative;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    padding: 8px 15px;
+    font: 700 16px Saira;
+    color: #000000;
+    transition: 0.15s;
+}
+.pageContent form input[disabled] {
+    opacity: 0.5;
+}
+.pageContent form input:focus {
+    box-shadow: 0px 5px 15px #00000030;
+}
+.pageContent form input:-webkit-autofill {
+    -webkit-box-shadow: 0px 0px 0px 1px black inset, 0 0 0 50px #fafafa inset;
+}
+.pageContent form .group {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+.pageContent form .group.cc {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.025fr 0.5fr 0.5fr;
+    grid-gap: 10px;
+}
+.pageContent form .group.cc:hover .disabled {
+    transition: 0.15s;
+    opacity: 1;
+    cursor: not-allowed;
+}
+.pageContent form .group.cc .disabled {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    inset: 0px;
+    z-index: 9;
+    margin: -5px;
+    font: 500 16px Saira;
+    opacity: 0;
+    backdrop-filter: blur(5px);
+}
+.pageContent form .group .item {
+    position: relative;
+    display: block;
+}
+.pageContent form .group .item .label {
+    position: relative;
+    display: block;
+    font: 600 14px Saira;
+    color: #3a3a3a;
+}
+.pageContent form .buttons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+}
+.pageContent form .buttons button {
+    all: unset;
+    position: relative;
+    display: block;
+    background-color: #00aacc;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font: 700 18px/18px Saira Condensed;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.pageContent form .buttons button:hover {
+    box-shadow: 0px 5px 15px #00000030;
+}
+.pageContent form .buttons button:focus {
+    box-shadow: 0px 5px 15px #00000030;
+    outline: 2px solid #00aaff;
+    outline-offset: 2px;
+}
+.pageContent form .buttons button:active {
+    box-shadow: 0px 1px 3px #00000060;
+}
+
+.pageContent .formStatusContainer {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px #00000030;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+.pageContent .formStatusContainer.error {
+    background-color: #f8c080;
+    border: 2px dashed #ff0000;
+}
+.pageContent .formStatusContainer.success {
+    background-color: #aff3f8;
+    border: 2px dashed #00aaff;
+}
+.pageContent .formStatusContainer .title {
+    position: relative;
+    display: block;
+    font: 900 20px/20px Saira Condensed;
+    color: #000000;
+}
+.pageContent .formStatusContainer .desc {
+    position: relative;
+    display: block;
+    margin-top: 5px;
+    font: 500 16px/20px Saira;
+    color: #000000;
+}
+.pageContent .formStatusContainer .desc a {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: #0088cc;
+}
+
+.pageContent .emptyList {
+    position: relative;
+    display: block;
+    margin-top: 50px;
+}
+.pageContent .emptyList .title {
+    position: relative;
+    display: block;
+    font: 700 30px/30px Saira Condensed;
+    color: #000000c0;
+}
+.pageContent .emptyList .desc {
+    position: relative;
+    display: block;
+    margin-top: 5px;
+    font: 500 16px/20px Saira;
+    color: #000000c0;
+}
+
+.pageContent .usersList {
+    position: relative;
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px #00000030;
+}
+.pageContent .usersList th {
+    font: 900 20px Saira Condensed;
+    color: #000000;
+    text-align: left;
+}
+.pageContent .usersList td {
+    font: 600 16px Saira;
+    color: #000000c0;
+}
